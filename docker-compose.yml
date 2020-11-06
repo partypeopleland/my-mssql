@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  sql2019:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    restart: unless-stopped
+    container_name: sql2019
+    ports:
+      - 1432:1433
+    volumes:
+      - D:\docker-volumes\mssql2019:/var/opt/mssql
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Passw0rd
+      - MSSQL_PID=Developer
